@@ -21,17 +21,18 @@ body{
 
 
 </style>
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container" id="app">
+
    <form method="post">
 
        <div class="row">
    	      <div class="col">
 	   	        <div class="form-group">
 	 	           <label>Task Name</label>
-	 	           <input type="text" name="taskName" class="form-control">
+	 	           <input v-model="item" type="text" name="taskName" class="form-control">
 	             </div>
    	      </div>
    	      <div class="col">
@@ -45,14 +46,14 @@ body{
 
  
 
- <button  type="submit" class="btn btn-primary btn-block">Add Task</button>
+ <button v-on:click="addTodo" type="button" class="btn btn-primary btn-block">Add Task</button>
    </form>
    <hr>
 	<h3>Todo Items</h3>
 
-	<ul class="list-group">
-		<li class="list-group-item d-flex justify-content-between align-items-center ">JavaScript Assignment
-		 <span class="badge badge-primary badge-pill">5 days</span>
+	<ul >
+		<li v-for="todo in todos">{{todo}}
+		</li>
 
 		
 	</ul>
